@@ -6,7 +6,6 @@ import {
 } from './types';
 
 const API_URL = 'https://pokeapi.co/api/v2';
-
 export function fetchPokemons () {
   return function (dispatch) {
     dispatch(handleLoading(true));
