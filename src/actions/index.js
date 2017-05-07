@@ -5,7 +5,7 @@ import {
     HANDLE_LOADING
 } from './types';
 
-const API_URL = 'http://pokeapi.co/api/v2';
+const API_URL = 'https://pokeapi.co/api/v2';
 
 export function fetchPokemons () {
   return function (dispatch) {
