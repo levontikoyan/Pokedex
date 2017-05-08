@@ -9,7 +9,7 @@ const API_URL = 'https://pokeapi.co/api/v2';
 export function fetchPokemons () {
   return function (dispatch) {
     dispatch(handleLoading(true));
-    axios.get(`${API_URL}/pokemon`, { params: { limit: 5 } })
+    axios.get(`${API_URL}/pokemon`, { params: { limit: 15 } })
     .then(response => {
       var results = response.data.results;
       return Promise.all(results.map(function (pokemon) {
@@ -55,7 +55,7 @@ export function fetchPokemonsByType (url) {
     axios.get(url)
     .then(response => {
       var results = response.data.pokemon;
-      results = results.slice(Math.max(results.length - 5, 1));
+      results = results.slice(Math.max(results.length - 15, 1));
       return Promise.all(results.map(function (pokemon) {
         return axios.get(`${pokemon.pokemon.url}`)
             .then(response => {
@@ -84,5 +84,5 @@ export function handleLoading (status) {
   return {
     type: HANDLE_LOADING,
     payload: status
-  }
+  };
 }
